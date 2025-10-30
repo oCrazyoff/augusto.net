@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@theme {
+    --color-azul-escuro: #060B14;
+    --color-azul: #24C1EC;
+    --color-borda: #24c1ec3c;
+    --color-texto-opaco: #ffffffb9;
+}
+
+@layer base {
+    * {
+        @apply duration-300 ease-in-out;
+        /* outline: 1px solid red; */
+    }
+
+    html {  
+        @apply scroll-smooth;
+    }
+
+    body {
+        @apply bg-azul-escuro text-white;
+    }
+
+}
+
+@layer components {
+
+    /* geral */
+    .interface {
+        @apply mx-auto max-w-[1280px] w-full px-3 lg:px-5 py-2;
+    }
+
+    /* header */
+    header {
+        @apply sticky top-0 left-0 bg-azul-escuro/40 h-[5rem] border-b border-borda backdrop-blur-xl z-500;
+
+        & .interface {
+            @apply flex items-center justify-between h-full;
+
+            & .logo,
+            nav {
+                @apply flex items-center justify-center gap-5;
+            }
+
+            & .logo {
+                @apply text-2xl text-azul font-semibold;
+
+                & i {
+                    @apply flex items-center justify-center w-10 h-10 rounded-xl bg-azul text-white;
+                }
+            }
+
+            & nav {
+                & a {
+                    @apply px-5 py-2 rounded-xl bg-azul text-white;
+
+                    &.segunda-via {
+                        @apply text-azul bg-azul-escuro border-2 border-azul/50;
+                    }
+
+                    &:hover {
+                        @apply opacity-90;
+                    }
+                }
+            }
+        }
+    }
+
+    /* hero */
+    #hero{
+        @apply relative h-[calc(100dvh-5rem)];
+
+        & .img-fundo{
+            @apply absolute top-0 left-0 w-full h-full object-cover opacity-40 z-100;
+        }
+
+        & .interface{
+            @apply relative flex flex-col items-center justify-center gap-10 h-full z-200;
+
+            & h2{
+                @apply text-center font-bold text-6xl;
+
+                & span{
+                    @apply text-azul;
+                }
+            }
+
+            & p{
+                @apply text-2xl text-texto-opaco w-2/3 text-center;
+            }
+
+            & .btn-hero{
+                @apply flex items-center justify-center gap-3;
+
+                & a {
+                    @apply px-5 py-2 rounded-xl bg-azul text-white;
+
+                    &.planos {
+                        @apply text-azul bg-azul-escuro border-2 border-azul/50;
+                    }
+
+                    &:hover {
+                        @apply opacity-90;
+                    }
+                }
+            }
+
+            & .info-hero{
+                @apply flex items-center justify-center gap-10;
+
+                & p{
+                    @apply flex flex-col gap-2 text-sm w-max;
+
+                    & span{
+                        @apply text-4xl text-azul;
+                    }
+                }
+            }
+        }
+    }
+}
